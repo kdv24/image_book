@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Your New Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <h3>Here is the contact you added:</h3>
+
+        <h5>{{ new_contact.getName }} </h5>
+        <li> {{ new_contact.getPhone }} </li>
+        <li>{{ new_contact.getAddress }} </li>
+        <img src= {{ new_contact.getImage }} style= "width:100px;height:100px">
+        </ul>
+    <button class="btn"><a href='/'>Add another contact</a></button>
+</div> 
+</body>
+</html>

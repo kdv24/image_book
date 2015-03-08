@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Your New Contact</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href='../css/styles.css'>
+</head>
+<body>{#This is all executed on the initial page shown#}
+       
+    <div class="container">
+        <h1>Address Book</h1>
+        <h3>Add a new contact:</h3>
+    <form action='/contact_added' method='post'>
+        <div class="form-group">
+        <label for='name'>Contact name</label>
+        <input id='name' name='name' type='text' required>
+
+        <label for='phone'>Phone number</label>
+        <input id='phone' name='phone' type='text' required>
+
+        <label for='address'>Address</label>
+        <input id='address' name='address' type='text' required>
+
+        <label for='image'>Link to a picture</label>
+        <input id='image' name='image' type='url' required>
+
+        <button type='submit' class="btn-primary">Post</button>
+        </div>
+    </form>
+
+
+    </div>
+
+    <div class="container">
+        <h3>Search for someone in your address book</h3>
+        <form action='/search' method='post'>
+            <div class="form-group">
+                <label for='name'>Enter contact name:</label>
+                <input id='name' name='name' class="form-control" type="text">
+
+            <button type='submit' class='btn-primary'>Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container"> 
+    {% if contacts is not empty %}
+            <h3>Here are all your contacts:</h3>
+                <form action='/delete' method='post'>
+                    <button type='submit' class="btn-primary">Delete all contacts</button>
+                </form>
+            <div class='container each-contact'> 
+                <ul>
+                {% for contact in contacts %}
+                <h5>{{ contact.getName }}</h5>
+                    <li> {{ contact.getPhone }} </li>
+                    <li> {{ contact.getAddress }} </li>
+                    <img src= {{ contact.getImage }} style= "width:100px;height:100px">
+                {% endfor %}
+                </ul>
+            </div>       
+    {% endif %}
+    </div>
+</body>
+</html>

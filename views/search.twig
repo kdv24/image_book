@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Your Search Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+    <h3>Here are the names in your address book that match your search:</h3>
+
+                <ul>
+                {% for contact in contact_search %}
+                <h5>{{ contact.getName }}</h5>
+                    <li> {{ contact.getPhone }} </li>
+                    <li> {{ contact.getAddress }} </li>
+                    <img src= {{ contact.getImage }} style= "width:100px;height:100px">
+                {% endfor %}
+                </ul>
+
+    <button class='btn'><a href='/'>Search again</a></button>
+    </div>
+</body>
+</html>
